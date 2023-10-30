@@ -5,7 +5,7 @@ namespace App\Services;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Intervention\Image\Image;
+use Intervention\Image\Facades\Image;
 
 class FileService
 {
@@ -37,7 +37,7 @@ class FileService
         $image->crop($request->width, $request->height, $request->left, $request->top);
 
         $name = time() . '.' . $extension;
-        $path = '/files/' . $name;
+        $path = DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . $name;
         $image->save(public_path() . $path);
         $model->image = $path;
 

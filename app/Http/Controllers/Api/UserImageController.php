@@ -20,7 +20,7 @@ class UserImageController extends Controller
 
         try {
             $user = User::findOrFail(auth()->user()->id);
-            $user = (new FileService)->updateImage($user, $request);
+            $user = (new FileService())->updateImage($user, $request);
             $user->save();
 
             return response()->json(['USER IMAGE UPDATED'], 200);
