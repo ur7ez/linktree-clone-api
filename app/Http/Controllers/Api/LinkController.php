@@ -28,7 +28,7 @@ class LinkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:20',
+            'name' => 'required|max:100',
             'url' => 'required|active_url',
         ]);
         try {
@@ -36,7 +36,7 @@ class LinkController extends Controller
             $link->user_id = auth()->user()->id;
             $link->name = $request->input('name');
             $link->url = $request->input('url');
-            $link->image = 'link-placeholder.png';
+            $link->image = '/link-placeholder.png';
 
             $link->save();
 
@@ -52,7 +52,7 @@ class LinkController extends Controller
     public function update(Request $request, Link $link)
     {
         $request->validate([
-            'name' => 'required|max:20',
+            'name' => 'required|max:100',
             'url' => 'required',
         ]);
         try {
