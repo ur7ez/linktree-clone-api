@@ -1,6 +1,7 @@
 # LinkTree Clone API
 
 Done with guides from excellent tutorial at [John Weeks Dev](https://www.youtube.com/@johnweeksdev)'s YouTube channel.
+Original project code is [here](https://github.com/John-Weeks-Dev/linktree-clone-api)
 
 ## Steps needed to accomplish this app
 
@@ -23,7 +24,25 @@ php artisan breeze:install
 ```
 choose `api` option as frontend stack
 
-### Run project
+
+### App Setup (locally)
+Install project dependencies
+```
+composer install 
+```
+Add project environment settings:
+```
+cp .env.example .env 
+```
+Create a DATABASE. Make sure the DB_DATABASE in the .env file is the same and then Run DB migrations:
+```
+php artisan migrate
+```
+Generate app key
+```
+php artisan key:generate
+```
+Run project
 ```
 php artisan serve
 ```
